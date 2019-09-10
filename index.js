@@ -53,6 +53,6 @@ const getPerson = () => {
             console.log('terminou o request com erro')
             console.log(err)
             reject(err);
-        }
+        })
     });
 }
