@@ -27,9 +27,11 @@ app.get('/healthcheck', (req, res) => {
 app.get('/integration', (req, res) => {
     getPerson()
         .then(person => {
+            console.log('deu certo')
             res.json(person);
         })
         .catch(err => {
+            console.log('deu merda aqui')
             res.json(err);
         })
 })
@@ -44,8 +46,13 @@ const getPerson = () => {
     return new Promise((resolve, reject) => {
         axios.get('http://demo-service-faker.demo.local/faker')
         .then(person => {
+            console.log('terminou o request com sucesso')
             resolve(person.data);
         })
-        .catch(err => reject(err))
+        .catch(err => {
+            console.log('terminou o request com erro')
+            console.log(err)
+            reject(err);
+        }
     });
 }
