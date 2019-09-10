@@ -44,7 +44,7 @@ app.listen(PORT, err => {
 
 const getPerson = () => {
     return new Promise((resolve, reject) => {
-        axios.get('http://demo-service-faker.demo.local:9000/faker')
+        axios.get('http://demo-service-faker.demo.local:5000/faker')
         .then(person => {
             console.log('terminou o request com sucesso')
             resolve(person.data);
