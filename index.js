@@ -27,7 +27,10 @@ app.get('/healthcheck', (req, res) => {
 app.get('/integration', (req, res) => {
     getPerson()
         .then(person => {
-            res.json(person)
+            res.json(person);
+        })
+        .catch(err => {
+            res.json(err);
         })
 })
 
@@ -43,6 +46,6 @@ const getPerson = () => {
         .then(person => {
             resolve(person.data);
         })
-        .catch(err => reject(err.err))
+        .catch(err => reject(err))
     });
 }
